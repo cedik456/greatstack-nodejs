@@ -1,6 +1,9 @@
 // const fs = require("fs");
 // const http = require("http");
-const path = require("path");
+// const path = require("path");
+const os = require("os");
+
+// ------------ Read and Write -----------------------
 
 // fs.readFile("example.txt", "utf8", (err, data) => {
 //   if (err) {
@@ -10,7 +13,7 @@ const path = require("path");
 //   console.log(data);
 // });
 
-// --------------------------------------------
+// ----------------------------------------------------
 
 // const content = "Some content!";
 
@@ -22,7 +25,7 @@ const path = require("path");
 //   return;
 // });
 
-// ------------------ Server (Http) -----------------------
+// ------------------ Server (Http) --------------------
 
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
@@ -34,7 +37,7 @@ const path = require("path");
 //   console.log("Server running at http://localhost:3000");
 // });
 
-// ------------------- Path ----------------------------------
+// ------------------- Path -------------------------------
 
 // const directory = "user/local";
 // const fileName = "output.txt";
@@ -42,3 +45,14 @@ const path = require("path");
 // const fullPath = path.join(directory, fileName);
 
 // console.log(fullPath);
+
+// --------------------- OS -------------------------------
+
+console.log("Platform:", os.platform());
+console.log("Architecture:", os.arch());
+
+const totalMemory = os.totalmem() / (1024 * 1024 * 1024);
+const freeMemory = os.freemem() / (1024 * 1024 * 1024);
+
+console.log("Total Memory:", totalMemory.toFixed(2), "GB");
+console.log("Free Memory:", freeMemory.toFixed(2), "GB");
