@@ -6,6 +6,7 @@ const url = require("url");
 const crypto = require("crypto");
 const sayHello = require("./greetings");
 const math = require("./math");
+const lodash = require("lodash");
 
 // ------------ Read and Write -----------------------
 
@@ -86,8 +87,15 @@ const math = require("./math");
 
 // -------------- CREATING MULTIPLE MODULES ------------------
 
-const sum = math.add(10, 20);
-const diff = math.subtract(20, 10);
+// const sum = math.add(10, 20);
+// const diff = math.subtract(20, 10);
 
-console.log(sum);
-console.log(diff);
+// console.log(sum);
+// console.log(diff);
+
+// --------------- Foreign Packages ---------------------------
+
+const number = [1, 2, 3, 4, 5];
+const reversed = lodash.reverse(number);
+
+console.log(reversed);
