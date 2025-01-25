@@ -7,6 +7,7 @@ const crypto = require("crypto");
 const sayHello = require("./greetings");
 const math = require("./math");
 const lodash = require("lodash");
+const readline = require("readline");
 
 // ------------ Read and Write -----------------------
 
@@ -133,11 +134,25 @@ const lodash = require("lodash");
 
 // ------------- PIPE STREAMS ----------------------
 
+// const readableStream = fs.createReadStream("example.txt");
+// const writableStream = fs.createWriteStream("example-output.txt");
+
+// readableStream.pipe(writableStream);
+
+// writableStream.on("finish", () => {
+//   console.log("Finish Copying Stream");
+// });
+
+// ------------- LARGE FILES ----------------------
+
 const readableStream = fs.createReadStream("example.txt");
-const writableStream = fs.createWriteStream("example-output.txt");
 
-readableStream.pipe(writableStream);
+const rl = readline.createInterface({ input: readableStream });
 
-writableStream.on("finish", () => {
-  console.log("Finish Copying Stream");
+rl.on("line", (line) => {
+  console.log("Line: ", line);
+});
+
+rl.on("close", () => {
+  console.log("Finish create lines");
 });
