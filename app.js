@@ -166,7 +166,23 @@ const readline = require("readline");
 //   console.log("Finish Creating directory");
 // });
 
-// ------------- CREATING A DIRECTORY ASYNCHRONOUSLY ----------------------
+// ------------- CREATING A DIRECTORY SYNCHRONOUSLY ----------------------
 
 // fs.mkdirSync("newFolder2");
 // console.log("Finish creating directory");
+
+// ------------- READING A DIRECTORY ASYNCHRONOUSLY ----------------------
+
+// fs.readdir("./", (err, file) => {
+//   if (err) {
+//     console.error("Error reading directory: ", err);
+//   }
+//   console.log("Directory Content: ", file);
+// });
+
+// ------------- READING A DIRECTORY SYNCHRONOUSLY ----------------------
+
+// console.log("Directory Contents: ", fs.readdirSync("./"));
+
+// const files = fs.readdirSync("./");
+// console.log("Directory Contents: ", files);
