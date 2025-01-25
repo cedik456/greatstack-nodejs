@@ -1,9 +1,10 @@
-// const fs = require("fs");
-// const http = require("http");
-// const path = require("path");
-// const os = require("os");
-// const url = require("url");
+const fs = require("fs");
+const http = require("http");
+const path = require("path");
+const os = require("os");
+const url = require("url");
 const crypto = require("crypto");
+const sayHello = require("./greetings");
 
 // ------------ Read and Write -----------------------
 
@@ -71,8 +72,12 @@ const crypto = require("crypto");
 
 // ------------------------ CRYPTO --------------------------
 
-const hash = crypto.createHash("sha256");
-hash.update("Hello World");
-const result = hash.digest("hex");
+// const hash = crypto.createHash("sha256");
+// hash.update("Hello World");
+// const result = hash.digest("hex");
 
-console.log(result);
+// console.log(result);
+
+// ----------------- CREATING A MODULE -----------------------
+
+console.log(sayHello("Lawrence"));
