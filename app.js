@@ -157,11 +157,16 @@ const readline = require("readline");
 //   console.log("Finish create lines");
 // });
 
-// ------------- CREATING A DIRECTORY ----------------------
+// ------------- CREATING A DIRECTORY ASYNCHRONOUSLY ----------------------
 
-fs.mkdir("newFolder", (err) => {
-  if (err) {
-    return console.error("Error creating directory: ", err);
-  }
-  console.log("Finish Creating a folder");
-});
+// fs.mkdir("newFolder", (err) => {
+//   if (err) {
+//     return console.error("Error creating directory: ", err);
+//   }
+//   console.log("Finish Creating directory");
+// });
+
+// ------------- CREATING A DIRECTORY ASYNCHRONOUSLY ----------------------
+
+// fs.mkdirSync("newFolder2");
+// console.log("Finish creating directory");
