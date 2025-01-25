@@ -2,7 +2,8 @@
 // const http = require("http");
 // const path = require("path");
 // const os = require("os");
-const url = require("url");
+// const url = require("url");
+const crypto = require("crypto");
 
 // ------------ Read and Write -----------------------
 
@@ -60,10 +61,18 @@ const url = require("url");
 
 // ----------------------- URL -----------------------------
 
-const myUrl = new URL("https://example.com:8080/path/name?query=hello#hash");
+// const myUrl = new URL("https://example.com:8080/path/name?query=hello#hash");
 // console.log("Url", myUrl);
-console.log("Host:", myUrl.host);
-console.log("Pathname:", myUrl.pathname);
-console.log("SearchParams:", myUrl.searchParams.get("query"));
-console.log("Username:", myUrl.username);
-console.log("Password:", myUrl.password);
+// console.log("Host:", myUrl.host);
+// console.log("Pathname:", myUrl.pathname);
+// console.log("SearchParams:", myUrl.searchParams.get("query"));
+// console.log("Username:", myUrl.username);
+// console.log("Password:", myUrl.password);
+
+// ------------------------ CRYPTO --------------------------
+
+const hash = crypto.createHash("sha256");
+hash.update("Hello World");
+const result = hash.digest("hex");
+
+console.log(result);
