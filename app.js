@@ -120,13 +120,24 @@ const lodash = require("lodash");
 
 // ------------- WRITABLE STREAMS ----------------------
 
-const writableStream = fs.createWriteStream("streams.txt");
+// const writableStream = fs.createWriteStream("streams.txt");
 
-writableStream.write("Hello");
-writableStream.write("Worlds");
+// writableStream.write("Hello ");
+// writableStream.write("World!");
 
-writableStream.end();
+// writableStream.end();
+
+// writableStream.on("finish", () => {
+//   console.log("Finish Writing to the File");
+// });
+
+// ------------- PIPE STREAMS ----------------------
+
+const readableStream = fs.createReadStream("example.txt");
+const writableStream = fs.createWriteStream("example-output.txt");
+
+readableStream.pipe(writableStream);
 
 writableStream.on("finish", () => {
-  console.log("Finish Writing to the File");
+  console.log("Finish Copying Stream");
 });
