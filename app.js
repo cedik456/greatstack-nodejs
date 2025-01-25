@@ -5,6 +5,7 @@ const os = require("os");
 const url = require("url");
 const crypto = require("crypto");
 const sayHello = require("./greetings");
+const math = require("./math");
 
 // ------------ Read and Write -----------------------
 
@@ -80,4 +81,13 @@ const sayHello = require("./greetings");
 
 // ----------------- CREATING A MODULE -----------------------
 
-console.log(sayHello("Lawrence"));
+// const message = sayHello("Lawrence");
+// console.log(message);
+
+// -------------- CREATING MULTIPLE MODULES ------------------
+
+const sum = math.add(10, 20);
+const diff = math.subtract(20, 10);
+
+console.log(sum);
+console.log(diff);
