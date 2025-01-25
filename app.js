@@ -1,7 +1,8 @@
 // const fs = require("fs");
 // const http = require("http");
 // const path = require("path");
-const os = require("os");
+// const os = require("os");
+const url = require("url");
 
 // ------------ Read and Write -----------------------
 
@@ -48,11 +49,21 @@ const os = require("os");
 
 // --------------------- OS -------------------------------
 
-console.log("Platform:", os.platform());
-console.log("Architecture:", os.arch());
+// console.log("Platform:", os.platform());
+// console.log("Architecture:", os.arch());
 
-const totalMemory = os.totalmem() / (1024 * 1024 * 1024);
-const freeMemory = os.freemem() / (1024 * 1024 * 1024);
+// const totalMemory = os.totalmem() / (1024 * 1024 * 1024);
+// const freeMemory = os.freemem() / (1024 * 1024 * 1024);
 
-console.log("Total Memory:", totalMemory.toFixed(2), "GB");
-console.log("Free Memory:", freeMemory.toFixed(2), "GB");
+// console.log("Total Memory:", totalMemory.toFixed(2), "GB");
+// console.log("Free Memory:", freeMemory.toFixed(2), "GB");
+
+// ----------------------- URL -----------------------------
+
+const myUrl = new URL("https://example.com:8080/path/name?query=hello#hash");
+// console.log("Url", myUrl);
+console.log("Host:", myUrl.host);
+console.log("Pathname:", myUrl.pathname);
+console.log("SearchParams:", myUrl.searchParams.get("query"));
+console.log("Username:", myUrl.username);
+console.log("Password:", myUrl.password);
