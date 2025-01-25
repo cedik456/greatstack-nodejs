@@ -93,9 +93,40 @@ const lodash = require("lodash");
 // console.log(sum);
 // console.log(diff);
 
-// --------------- Foreign Packages ---------------------------
+// ------------ Installing Packages using NPM -----------------------
 
-const number = [1, 2, 3, 4, 5];
-const reversed = lodash.reverse(number);
+// const number = [1, 2, 3, 4, 5];
+// const reversed = lodash.reverse(number);
 
-console.log(reversed);
+// console.log(reversed);
+
+// STREAMS
+
+// ------------- READABLE STREAMS ----------------------
+
+// const readableStream = fs.createReadStream("example.txt", { encoding: "utf8" });
+
+// readableStream.on("data", (chunk) => {
+//   console.log(chunk);
+// });
+
+// readableStream.on("end", () => {
+//   console.log("Finish Reading the file");
+// });
+
+// readableStream.on("error", (err) => {
+//   console.log("Error:", err);
+// });
+
+// ------------- WRITABLE STREAMS ----------------------
+
+const writableStream = fs.createWriteStream("streams.txt");
+
+writableStream.write("Hello");
+writableStream.write("Worlds");
+
+writableStream.end();
+
+writableStream.on("finish", () => {
+  console.log("Finish Writing to the File");
+});
