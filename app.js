@@ -145,14 +145,23 @@ const readline = require("readline");
 
 // ------------- LARGE FILES ----------------------
 
-const readableStream = fs.createReadStream("example.txt");
+// const readableStream = fs.createReadStream("example.txt");
 
-const rl = readline.createInterface({ input: readableStream });
+// const rl = readline.createInterface({ input: readableStream });
 
-rl.on("line", (line) => {
-  console.log("Line: ", line);
-});
+// rl.on("line", (line) => {
+//   console.log("Line: ", line);
+// });
 
-rl.on("close", () => {
-  console.log("Finish create lines");
+// rl.on("close", () => {
+//   console.log("Finish create lines");
+// });
+
+// ------------- CREATING A DIRECTORY ----------------------
+
+fs.mkdir("newFolder", (err) => {
+  if (err) {
+    return console.error("Error creating directory: ", err);
+  }
+  console.log("Finish Creating a folder");
 });
