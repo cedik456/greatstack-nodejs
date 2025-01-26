@@ -189,10 +189,34 @@ const readline = require("readline");
 
 // ------------- CHECKING A DIRECTORY SYNCHRONOUSLY ----------------------
 
-const folderName = "newFolder";
+// const folderName = "newFolder";
 
-if (fs.existsSync(folderName)) {
-  console.log("Directory Exists");
-} else {
-  console.log("Directory doesn't exists");
-}
+// if (fs.existsSync(folderName)) {
+//   console.log("Directory Exists");
+// } else {
+//   console.log("Directory doesn't exists");
+// }
+
+// ------------- DELETING A DIRECTORY ASYNCHRONOUSLY ----------------------
+
+// const folderName = "newFolder";
+
+// fs.rmdir(folderName, (err) => {
+//   if (err) {
+//     console.error("Error: ", err);
+//   }
+//   console.log("Deleted Successfully");
+// });
+
+// ------------- DELETING A DIRECTORY SYNCHRONOUSLY ----------------------
+
+// const folderName = "newFolder2";
+
+// fs.rmdirSync(folderName);
+
+fs.rm("newDirectory", { recursive: true }, (err) => {
+  if (err) {
+    return console.error("Error: ", err);
+  }
+  console.log("Directory Removed");
+});
