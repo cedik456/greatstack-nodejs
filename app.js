@@ -223,9 +223,19 @@ const readline = require("readline");
 
 // ------------- RENAMING A DIRECTORY SYNCHRONOUSLY ----------------------
 
-fs.rename("folder1", "folder2", (err) => {
+// fs.rename("folder1", "folder2", (err) => {
+//   if (err) {
+//     return console.error("Error: ", err);
+//   }
+//   console.log("Renaming Successful");
+// });
+
+// ------------- GET STATS A DIRECTORY SYNCHRONOUSLY ----------------------
+
+fs.stat("example.txt", (err, stats) => {
   if (err) {
     return console.error("Error: ", err);
   }
-  console.log("Renaming Successful");
+  console.log("Stats Directory: ", stats);
+  console.log("Directory: ", stats.isDirectory());
 });
