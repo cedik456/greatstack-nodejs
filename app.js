@@ -214,9 +214,18 @@ const readline = require("readline");
 
 // fs.rmdirSync(folderName);
 
-fs.rm("newDirectory", { recursive: true }, (err) => {
+// fs.rm("newDirectory", { recursive: true }, (err) => {
+//   if (err) {
+//     return console.error("Error: ", err);
+//   }
+//   console.log("Directory Removed");
+// });
+
+// ------------- RENAMING A DIRECTORY SYNCHRONOUSLY ----------------------
+
+fs.rename("folder1", "folder2", (err) => {
   if (err) {
     return console.error("Error: ", err);
   }
-  console.log("Directory Removed");
+  console.log("Renaming Successful");
 });
