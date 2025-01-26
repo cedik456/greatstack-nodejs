@@ -186,3 +186,13 @@ const readline = require("readline");
 
 // const files = fs.readdirSync("./");
 // console.log("Directory Contents: ", files);
+
+// ------------- CHECKING A DIRECTORY SYNCHRONOUSLY ----------------------
+
+const folderName = "newFolder";
+
+if (fs.existsSync(folderName)) {
+  console.log("Directory Exists");
+} else {
+  console.log("Directory doesn't exists");
+}
