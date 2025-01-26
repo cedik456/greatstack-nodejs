@@ -221,7 +221,7 @@ const readline = require("readline");
 //   console.log("Directory Removed");
 // });
 
-// ------------- RENAMING A DIRECTORY SYNCHRONOUSLY ----------------------
+// ------------- RENAMING A DIRECTORY ASYNCHRONOUSLY ----------------------
 
 // fs.rename("folder1", "folder2", (err) => {
 //   if (err) {
@@ -230,12 +230,21 @@ const readline = require("readline");
 //   console.log("Renaming Successful");
 // });
 
-// ------------- GET STATS A DIRECTORY SYNCHRONOUSLY ----------------------
+// ------------- GET STATS A DIRECTORY ASYNCHRONOUSLY ----------------------
 
-fs.stat("example.txt", (err, stats) => {
-  if (err) {
-    return console.error("Error: ", err);
+// fs.stat("example.txt", (err, stats) => {
+//   if (err) {
+//     return console.error("Error: ", err);
+//   }
+//   console.log("Stats Directory: ", stats);
+//   console.log("Directory: ", stats.isDirectory());
+// });
+
+// ------------- WATCHING A DIRECTORY ASYNCHRONOUSLY ----------------------
+
+fs.watch("./", (eventType, filename) => {
+  console.log(`Event Type: ${eventType}`);
+  if (filename) {
+    console.log(`Filename:  ${filename}`);
   }
-  console.log("Stats Directory: ", stats);
-  console.log("Directory: ", stats.isDirectory());
 });
