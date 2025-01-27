@@ -47,20 +47,25 @@ const url = require("url");
 
 // HANDLE QUERY
 
-const server = http.createServer((req, res) => {
-  if (req.method === "GET" && req.url.startsWith("/search")) {
-    const queryObject = url.parse(req.url, true).query;
+// const server = http.createServer((req, res) => {
+//   if (req.method === "GET" && req.url.startsWith("/search")) {
+//     const queryObject = url.parse(req.url, true).query;
 
-    res.writeHead(200, { "content-type": "application/json" });
-    res.end(JSON.stringify({ message: "Query Received:", queryObject }));
-  } else {
-    res.writeHead(404, { "content-type": "text/plain" });
-    res.end("Route not Found");
-  }
-});
+//     res.writeHead(200, {
+//       "content-type": "application/json",
+//       "custom-header": "Node Js Server",
+//       "custom-tracking": "1111",
+//     });
 
-const PORT = 4000;
+//     res.end(JSON.stringify({ message: "Query Received:", queryObject }));
+//   } else {
+//     res.writeHead(404, { "content-type": "text/plain" });
+//     res.end("Route not Found");
+//   }
+// });
 
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// const PORT = 4000;
+
+// server.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
