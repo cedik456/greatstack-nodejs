@@ -242,9 +242,9 @@ const readline = require("readline");
 
 // ------------- WATCHING A DIRECTORY ASYNCHRONOUSLY ----------------------
 
-fs.watch("./", (eventType, filename) => {
-  console.log(`Event Type: ${eventType}`);
-  if (filename) {
-    console.log(`Filename:  ${filename}`);
-  }
-});
+// fs.watch("./", (eventType, filename) => {
+//   console.log(`Event Type: ${eventType}`);
+//   if (filename) {
+//     console.log(`Filename:  ${filename}`);
+//   }
+// });
