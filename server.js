@@ -72,29 +72,89 @@ const url = require("url");
 
 // Route Handlers
 
-const routes = {
-  "/": (req, res) => {
-    res.writeHead(200, { "content-type": "text/plain" });
-    res.end("Welcome to the Homepage");
-  },
-  "/about": (req, res) => {
-    res.writeHead(200, { "content-type": "text/plain" });
-    res.end("This is the about page");
-  },
-  "/notFound": (req, res) => {
-    res.writeHead(404, { "content-type": "text/plain" });
-    res.end("Page not Found");
-  },
-};
+// const routes = {
+//   "/": (req, res) => {
+//     res.writeHead(200, { "content-type": "text/plain" });
+//     res.end("Welcome to the Homepage");
+//   },
+//   "/about": (req, res) => {
+//     res.writeHead(200, { "content-type": "text/plain" });
+//     res.end("This is the about page");
+//   },
+//   "/notFound": (req, res) => {
+//     res.writeHead(404, { "content-type": "text/plain" });
+//     res.end("Page not Found");
+//   },
+// };
+
+// const server = http.createServer((req, res) => {
+//   const { pathname } = url.parse(req.url);
+
+//   if (routes[pathname]) {
+//     routes[pathname](req, res);
+//   } else {
+//     routes["/notFound"](req, res);
+//   }
+// });
+
+// const PORT = 3000;
+
+// server.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+// DYNAMIC ROUTES
+
+// const routes = {
+//   "/user/": (req, res, userId) => {
+//     res.writeHead(200, { "content-type": "text/plain" });
+//     res.end(`User id: ${userId}`);
+//   },
+// };
+
+// const server = http.createServer((req, res) => {
+//   const { pathname } = url.parse(req.url);
+
+//   if (pathname.startsWith("/user/")) {
+//     const userId = pathname.split("/")[2];
+//     if (routes["/user/"]) {
+//       routes["/user/"](req, res, userId);
+//     } else {
+//       res.writeHead(404, { "Content-Type": "text/plain" });
+//       res.end("Page not Found");
+//     }
+//   } else {
+//     res.writeHead(404, { "Content-Type": "text/plain" });
+//     res.end("Page not Found");
+//   }
+// });
+
+// const PORT = 3000;
+
+// server.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+// MIDDLEWARE FUNCTION
+
+function logRequest(req, res, next) {
+  console.log(`${req.method} made to ${req.url}`);
+  next(req, res);
+}
 
 const server = http.createServer((req, res) => {
-  const { pathname } = url.parse(req.url);
+  logRequest(req, res, (req, res) => {
+    const { pathname } = url.parse(req.url);
 
-  if (routes[pathname]) {
-    routes[pathname](req, res);
-  } else {
-    routes["/notFound"](req, res);
-  }
+    if (pathname.startsWith("/user/")) {
+      const userId = pathname.split("/")[2];
+      res.writeHead(200, { "content-type": "text/plain" });
+      res.end(`User id: ${userId}`);
+    } else {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("Page not Found");
+    }
+  });
 });
 
 const PORT = 3000;
