@@ -214,3 +214,5 @@ emitter.on("log", () => {
 });
 
 emitter.emit("log");
+emitter.removeListener("log");
+emitter.emit("log");
