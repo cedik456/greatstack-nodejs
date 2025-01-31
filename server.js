@@ -209,4 +209,8 @@ emitter.on("log", () => {
   console.log("Hello World!");
 });
 
+emitter.on("log", () => {
+  console.log("Hello Ced!");
+});
+
 emitter.emit("log");
