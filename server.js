@@ -205,14 +205,22 @@ const EventEmitter = require("events");
 
 const emitter = new EventEmitter();
 
-emitter.on("log", () => {
-  console.log("Hello World!");
-});
+// emitter.on("log", () => {
+//   console.log("Hello World!");
+// });
 
 emitter.on("log", () => {
   console.log("Hello Ced!");
 });
 
-emitter.emit("log");
-emitter.removeListener("log");
-emitter.emit("log");
+emitter.on("error", (err) => {
+  console.log(`Error: ${err.message}`);
+});
+
+try {
+  emitter.emit("log");
+  emitter.removeListener("log");
+  emitter.emit("log");
+} catch (err) {
+  emitter.emit("error", err);
+}
